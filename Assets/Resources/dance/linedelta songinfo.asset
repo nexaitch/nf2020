@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8b24998df1b87b41a755b476c3ea6ce, type: 3}
+  m_Name: linedelta songinfo
+  m_EditorClassIdentifier: 
+  notes:
+  - beatNo: 16
+    track: 0
+  - beatNo: 17
+    track: 2
+  - beatNo: 18
+    track: 1
+  - beatNo: 19
+    track: 2
+  - beatNo: 20
+    track: 0
+  - beatNo: 21
+    track: 1
+  - beatNo: 22
+    track: 2
+  - beatNo: 24
+    track: 2
+  - beatNo: 25
+    track: 2
+  - beatNo: 26
+    track: 0
+  - beatNo: 27
+    track: 0
+  - beatNo: 28
+    track: 1
+  - beatNo: 29
+    track: 1
+  - beatNo: 30
+    track: 2
+  - beatNo: 32
+    track: 1
+  - beatNo: 33
+    track: 2
+  - beatNo: 34
+    track: 2
+  - beatNo: 35
+    track: 0
+  - beatNo: 36
+    track: 1
+  - beatNo: 37
+    track: 2
+  - beatNo: 38
+    track: 2
+  - beatNo: 40
+    track: 1
+  - beatNo: 41
+    track: 2
+  - beatNo: 41.5
+    track: 2
+  - beatNo: 42.5
+    track: 0
+  - beatNo: 43
+    track: 0
+  - beatNo: 44
+    track: 1
+  - beatNo: 45
+    track: 1
+  - beatNo: 46
+    track: 1
+  - beatNo: 47
+    track: 0
+  - beatNo: 47
+    track: 2
