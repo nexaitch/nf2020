@@ -48,6 +48,7 @@ namespace SpinningTopGame {
             }
             
             updateTime();
+            updatePlayerTops();
         }
 
         void startGame() {
@@ -55,6 +56,11 @@ namespace SpinningTopGame {
             timeRemaining = gameDuration;
             createPlayers();
             spawnGoal();
+            panCamera();
+        }
+
+        void panCamera() {
+            Camera.main.transform.position = new Vector3(0, 0, -10);
         }
 
         void createPlayers() {
@@ -80,6 +86,14 @@ namespace SpinningTopGame {
         void updateTime() {
             if (started) {
                 timeRemaining = Mathf.Clamp(timeRemaining - Time.deltaTime, 0, gameDuration);
+            }
+        }
+
+        void updatePlayerTops() {
+            if (timeRemaining <= 0) {
+                foreach ( spinningTop top in spawnedTops) {
+                    top.freeze();
+                }
             }
         }
 

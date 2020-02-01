@@ -22,23 +22,32 @@ namespace SpinningTopGame
         [SerializeField]
         public bool clockwise = true;
 
+        [SerializeField]
+        public bool violentClash = true;
+
+        [SerializeField]
+        public float clashFactor = 0.4f;
+
+        bool frozen = false;
+        
         
         [SerializeField]
         public uint score = 0;
 
-        Rigidbody2D body;
+        public Rigidbody2D body;
         // Start is called before the first frame update
         void Start()
         {
             body = GetComponent<Rigidbody2D>();
-            
         }
 
         // Update is called once per frame
         void Update()
         {
-            spin();
-            processKeyPress();
+            if(!frozen) {
+                spin();
+                processKeyPress();
+            }
         }
 
         public void setKey(KeyCode redCode, KeyCode greenCode, KeyCode blueCode) {
@@ -91,6 +100,26 @@ namespace SpinningTopGame
 
         public void setPlayerColor(int red, int green, int blue) {
             playerOverlay.GetComponent<SpriteRenderer>().color = new Color(red / 255, green / 255, blue / 255, 0.5f);
+        }
+
+        public void freeze() {
+            frozen = true;
+            body.angularVelocity = 0;
+            body.velocity = new Vector2(0, 0);
+        }
+
+        void OnCollisionEnter2D(Collision2D col)
+        {
+            if (violentClash) {
+                spinningTop otherTop = col.collider.GetComponent<spinningTop>();
+                if (otherTop != null) {
+                    // [violentClash] in case of clashes between top, add opposing force
+                    float clashMagnitude = (spinMagnitude + otherTop.spinMagnitude) * clashFactor * Time.deltaTime;
+                    Vector2 clashDirection = (transform.position - otherTop.transform.position).normalized;
+                    body.AddForce(clashDirection * clashMagnitude, ForceMode2D.Impulse);
+                    GetComponent<AudioSource>().Play();
+                }
+            }
         }
     }
 
