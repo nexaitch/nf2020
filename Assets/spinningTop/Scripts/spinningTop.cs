@@ -11,7 +11,7 @@ namespace SpinningTopGame
         public KeyCode redCode, greenCode, blueCode;
 
         [SerializeField]
-        public GameObject playerOverlay, redKnob, greenKnob, blueKnob;
+        public GameObject spinDisk, playerOverlay, redKnob, greenKnob, blueKnob;
 
         [SerializeField]
         public float pushMagnitude = 1.0f;
@@ -21,6 +21,10 @@ namespace SpinningTopGame
 
         [SerializeField]
         public bool clockwise = true;
+
+        
+        [SerializeField]
+        public uint score = 0;
 
         Rigidbody2D body;
         // Start is called before the first frame update
@@ -49,6 +53,9 @@ namespace SpinningTopGame
                 resolvedRotation *= -1;
             }
             body.angularVelocity = resolvedRotation;
+
+            // animation spin
+            spinDisk.transform.Rotate(0,0, 5f * resolvedRotation * Time.deltaTime);
         }
 
         void processKeyPress() {

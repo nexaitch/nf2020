@@ -152,7 +152,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4da687e60f5a2ff4e8da24e752742bfe, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -216,6 +216,7 @@ MonoBehaviour:
   redCode: 122
   greenCode: 120
   blueCode: 99
+  spinDisk: {fileID: 5146330795351309741}
   playerOverlay: {fileID: 4889705612706350318}
   redKnob: {fileID: 5146330795835218571}
   greenKnob: {fileID: 5146330797024069095}
@@ -223,6 +224,7 @@ MonoBehaviour:
   pushMagnitude: 10
   spinMagnitude: 180
   clockwise: 1
+  score: 0
 --- !u!50 &5146330795818602781
 Rigidbody2D:
   serializedVersion: 4
@@ -237,7 +239,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0.3
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -253,7 +255,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 5146330795818602771}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 27ba2172f1537754e94e78a82394843d, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -412,7 +414,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4da687e60f5a2ff4e8da24e752742bfe, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.4745098}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
