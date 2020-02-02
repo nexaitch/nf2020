@@ -16,11 +16,13 @@ namespace SpinningTopGame {
 
         public List<spinningTop> spawnedTops;
 
-        int playerCount = 3;
+        public int playerCount { get; private set; } 
 
         public KeyCode[,] playerKeyCodes; // [[r,g,b]]
         public int[,] playerColors;
 
+        [SerializeField]
+        public float warningTime = 4f;
         public float timeRemaining { get; private set; }
         // Start is called before the first frame update
         void Start()
@@ -106,6 +108,7 @@ namespace SpinningTopGame {
         }
 
         public void spawnGoal() {
+            // We want the goal to spawn as far as possible from the players.
             Vector2 newGoalPosition = new Vector2(0, 0);
             foreach (spinningTop top in spawnedTops) {
                 newGoalPosition.x -= top.transform.position.x;

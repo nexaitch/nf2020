@@ -10,10 +10,11 @@ namespace SpinningTopGame {
         Text timeText;
 
         [SerializeField]
-        GameObject tutorialPanel, endWarningPanel, finishPanel;
+        Text[] scoreTexts;
 
         [SerializeField]
-        public float warningTime = 5f;
+        GameObject tutorialPanel, endWarningPanel, finishPanel;
+
 
         [SerializeField]
         public stageManager manager;
@@ -30,6 +31,7 @@ namespace SpinningTopGame {
             updateTutorialPanel();
             updateWarningPanel();
             updateFinishPanel();
+            updateScores();
         }
 
         void updateTimeText() {
@@ -48,7 +50,7 @@ namespace SpinningTopGame {
 
         void updateWarningPanel() {
             if(manager.started) {
-                if (manager.timeRemaining < warningTime) {
+                if (manager.timeRemaining < manager.warningTime) {
                     endWarningPanel.GetComponent<Image>().color = new Color(1, 0, 0, 0.3f * (manager.timeRemaining % 1));
                 }
             }
@@ -57,6 +59,23 @@ namespace SpinningTopGame {
         void updateFinishPanel() {
             if(manager.started && manager.timeRemaining <= 0) {
                 finishPanel.SetActive(true);
+            }
+        }
+
+        void updateScores() {
+            if(manager.started) {
+                for (int i = 0; i < manager.playerCount; i++) {
+                    if (manager.spawnedTops[i] != null) {
+                        scoreTexts[i].text = "Score: " + manager.spawnedTops[i].score.ToString();
+                    } else {
+                        scoreTexts[i].text = "";
+                    }
+                }
+
+            } else {
+                foreach (Text scoreText in scoreTexts) {
+                    scoreText.text = "";
+                }
             }
         }
     }

@@ -19,7 +19,7 @@ namespace SpinningTopGame {
         {
             spinningTop top = col.GetComponent<spinningTop>();
             if (top != null) {
-                top.score += scorePoint;
+                top.gainScore(scorePoint);
                 Destroy(this.gameObject);
                 manager.spawnGoal();
             }

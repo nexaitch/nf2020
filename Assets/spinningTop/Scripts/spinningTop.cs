@@ -28,6 +28,9 @@ namespace SpinningTopGame
         [SerializeField]
         public float clashFactor = 0.4f;
 
+        [SerializeField]
+        AudioSource clashSound, scoreSound;
+
         bool frozen = false;
         
         
@@ -99,13 +102,20 @@ namespace SpinningTopGame
         }
 
         public void setPlayerColor(int red, int green, int blue) {
-            playerOverlay.GetComponent<SpriteRenderer>().color = new Color(red / 255, green / 255, blue / 255, 0.5f);
+            Color playerColor = new Color(red / 255, green / 255, blue / 255, 0.5f);
+            playerOverlay.GetComponent<SpriteRenderer>().color = playerColor;
+            GetComponent<TrailRenderer>().material.color = playerColor;
         }
 
         public void freeze() {
             frozen = true;
             body.angularVelocity = 0;
             body.velocity = new Vector2(0, 0);
+        }
+
+        public void gainScore(uint scoreGained) {
+            score += scoreGained;
+            scoreSound.Play();
         }
 
         void OnCollisionEnter2D(Collision2D col)
@@ -117,7 +127,7 @@ namespace SpinningTopGame
                     float clashMagnitude = (spinMagnitude + otherTop.spinMagnitude) * clashFactor * Time.deltaTime;
                     Vector2 clashDirection = (transform.position - otherTop.transform.position).normalized;
                     body.AddForce(clashDirection * clashMagnitude, ForceMode2D.Impulse);
-                    GetComponent<AudioSource>().Play();
+                    clashSound.Play();
                 }
             }
         }
