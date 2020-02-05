@@ -13,9 +13,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Background
+  - Basket
+  - New UI
   - 
   - 
   - 
@@ -41,9 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Note
+  - name: Background
     uniqueID: 4988833
     locked: 0
-  - name: Judgement
+  - name: Basket
     uniqueID: 3031850981
+    locked: 0
+  - name: UI
+    uniqueID: 1022193855
     locked: 0
