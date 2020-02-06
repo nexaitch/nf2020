@@ -20,6 +20,9 @@ namespace SpinningTopGame
         public float spinMagnitude = 270.0f;
 
         [SerializeField]
+        public bool buttonSpin = true;
+
+        [SerializeField]
         public bool clockwise = true;
 
         [SerializeField]
@@ -31,17 +34,19 @@ namespace SpinningTopGame
         [SerializeField]
         AudioSource clashSound, scoreSound;
 
-        bool frozen = false;
+        [SerializeField]
+        bool frozen = true;
         
         
         [SerializeField]
         public uint score = 0;
 
+        [SerializeField]
         public Rigidbody2D body;
         // Start is called before the first frame update
         void Start()
         {
-            body = GetComponent<Rigidbody2D>();
+            
         }
 
         // Update is called once per frame
@@ -64,7 +69,9 @@ namespace SpinningTopGame
             if (clockwise) {
                 resolvedRotation *= -1;
             }
-            body.angularVelocity = resolvedRotation;
+            if (buttonSpin) {
+                body.angularVelocity = resolvedRotation;
+            }
 
             // animation spin
             spinDisk.transform.Rotate(0,0, 5f * resolvedRotation * Time.deltaTime);
@@ -113,6 +120,10 @@ namespace SpinningTopGame
             body.velocity = new Vector2(0, 0);
         }
 
+        public void unfreeze() {
+            frozen = false;
+        }
+
         public void gainScore(uint scoreGained) {
             score += scoreGained;
             scoreSound.Play();
@@ -134,3 +145,17 @@ namespace SpinningTopGame
     }
 
 }
+
+/*
+
+Feedback 04/02/2020
+
+    * GAME HARD
+    * Nicest Push-Spin setup is 20-120
+    * Try:
+        - not spinning at all (just controls)
+        - button give spin instead of push
+        - top haz health
+    * There should be countdown before it starts 
+
+*/

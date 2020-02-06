@@ -14,18 +14,20 @@ namespace SpinningTopGame {
         bool soundStarted = false;
         bool timesUpPlayed = false;
 
+
         void Start() {
             tutorialSource.Play();
         }
 
         void Update() {
+            countdownToStart();
             checkGameStart();
             checkWarning();
             checkTimesUp();
         }
 
         void checkGameStart() {
-            if (manager.started && !soundStarted) {
+            if (manager.ready && !soundStarted) {
                 tutorialSource.Stop();
                 mainBgmSource.Play();
                 soundStarted = true;
@@ -42,6 +44,13 @@ namespace SpinningTopGame {
         public void playTimesUp() {
             timesUpSource.time = 0.15f;
             timesUpSource.Play();
+        }
+
+        void countdownToStart() {
+            if (manager.ready && !manager.started) {
+                float warningOffset = 0.3f * (manager.countdownToStart % 1);
+                if (warningOffset >= 0.29f) endWarningSource.Play();
+            }
         }
 
         void checkWarning() {

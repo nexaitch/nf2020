@@ -510,15 +510,17 @@ MonoBehaviour:
   redKnob: {fileID: 5146330795835218571}
   greenKnob: {fileID: 5146330797024069095}
   blueKnob: {fileID: 5146330796600392571}
-  pushMagnitude: 10
+  pushMagnitude: 20
   spinMagnitude: 180
+  buttonSpin: 1
   clockwise: 1
   violentClash: 1
-  clashFactor: 0.4
+  clashFactor: 0.6
   clashSound: {fileID: 4737205357393974096}
   scoreSound: {fileID: 4143810380381963178}
+  frozen: 1
   score: 0
-  body: {fileID: 0}
+  body: {fileID: 5146330795818602781}
 --- !u!50 &5146330795818602781
 Rigidbody2D:
   serializedVersion: 4

@@ -7,13 +7,13 @@ namespace SpinningTopGame {
     public class UIManager : MonoBehaviour
     {
         [SerializeField]
-        Text timeText;
+        Text timeText, countdownText;
 
         [SerializeField]
         Text[] scoreTexts;
 
         [SerializeField]
-        GameObject tutorialPanel, endWarningPanel, finishPanel;
+        GameObject tutorialPanel, endWarningPanel, finishPanel, countdownPanel;
 
 
         [SerializeField]
@@ -28,6 +28,7 @@ namespace SpinningTopGame {
         void Update()
         {
             updateTimeText();
+            updateCountdownText();
             updateTutorialPanel();
             updateWarningPanel();
             updateFinishPanel();
@@ -42,8 +43,19 @@ namespace SpinningTopGame {
             }
         }
 
+        void updateCountdownText() {
+            if (manager.ready && !manager.started) {
+                countdownPanel.SetActive(true);
+                countdownText.text = (Mathf.Ceil(manager.countdownToStart)).ToString();
+                float textScale = manager.countdownToStart % 1;
+                countdownText.rectTransform.localScale = new Vector3(textScale, textScale, 1);
+            } else {
+                countdownPanel.SetActive(false);
+            }
+        }
+
         void updateTutorialPanel() {
-            if(manager.started) {
+            if(manager.ready) {
                 tutorialPanel.SetActive(false);
             }
         }

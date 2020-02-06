@@ -9,7 +9,7 @@ namespace SpinningTopGame {
         public float gameDuration, areaRadius;
 
         [SerializeField]
-        public bool started = false;
+        public bool started = false, ready = false;
 
         [SerializeField]
         public GameObject top, goal;
@@ -23,6 +23,10 @@ namespace SpinningTopGame {
 
         [SerializeField]
         public float warningTime = 4f;
+
+        [SerializeField]
+        public float countdownToStart = 3.5f;
+
         public float timeRemaining { get; private set; }
         // Start is called before the first frame update
         void Start()
@@ -45,20 +49,39 @@ namespace SpinningTopGame {
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space) && !started) {
-                setPlayerCount(3);
-                startGame();
+                getReady();
             }
             
+            readyCountdown();
             updateTime();
             updatePlayerTops();
+        }
+
+        void getReady() {
+            ready = true;
+            setPlayerCount(2);
+            createPlayers();
+            panCamera();
+        }
+
+        void readyCountdown() {
+            if (ready && !started) {
+                countdownToStart = Mathf.Clamp(
+                    countdownToStart - Time.deltaTime, 0, countdownToStart
+                );
+                if (countdownToStart == 0) {
+                    startGame();
+                }
+            }
         }
 
         void startGame() {
             started = true;
             timeRemaining = gameDuration;
-            createPlayers();
             spawnGoal();
-            panCamera();
+            foreach (spinningTop top in spawnedTops) {
+                top.unfreeze();
+            }
         }
 
         void panCamera() {
