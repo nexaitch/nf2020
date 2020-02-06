@@ -1,0 +1,13 @@
+clash.wav - http://soundbible.com/1980-Swords-Collide.html
+endHorn.wav - http://soundbible.com/1542-Air-Horn.html
+endWarning.wav - http://soundbible.com/1133-Beep-Ping.html
+tutorial.mp3 - http://www.orangefreesounds.com/elevator-music/
+score.wav - http://soundbible.com/2156-Text-Message-Alert-3.html
+---
+
+Main BGM (main-bgm.mp3):
+
+"Arcade In Action" by Twisty Ceives https://soundcloud.com/twisty-ceives/arcade-in-action
+Creative Commons — Attribution 3.0 Unported  — CC BY 3.0 
+http://creativecommons.org/licenses/
+Music promoted by Twisty Ceives' Productions https://youtube.com/twistyceives
