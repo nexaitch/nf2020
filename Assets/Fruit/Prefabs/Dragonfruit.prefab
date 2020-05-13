@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 7254898729588397221}
   - component: {fileID: 8510083971695020529}
   - component: {fileID: 4431997789543996459}
-  - component: {fileID: 4221143495778400775}
-  m_Layer: 9
+  - component: {fileID: -9039347689525681345}
+  m_Layer: 0
   m_Name: Dragonfruit
-  m_TagString: Untagged
+  m_TagString: Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1263116315
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: eec728af8a453384eaf7b48661de0eef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -121,7 +121,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4221143495778400775
+--- !u!114 &-9039347689525681345
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,8 +130,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7026194399866785619}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb938144d09c8e44cb6387d70ab7bbe3, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a9f5fe1bcb70fd45bb5d27cc72d9766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
-  invulnPeriod: 0
+  durianOffset: {x: 0, y: 1, z: 0}
+  odurian: {fileID: 0}

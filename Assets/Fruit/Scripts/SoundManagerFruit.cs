@@ -5,15 +5,14 @@ using UnityEngine;
 public class SoundManagerFruit : MonoBehaviour
 
 {
-    public static AudioClip knifeSound, pingSound, bombSound, splatSound;
+    public static AudioClip knifeSound, pingSound, splatSound;
     static AudioSource audioSrc;
-    public AudioClip knife, ping, bomb, splat;
+    public AudioClip knife, ping, splat;
 
 
     void Start() {
         knifeSound = knife;
         pingSound = ping;
-        bombSound = bomb;
         splatSound = splat;
         audioSrc = GetComponent<AudioSource>();
     }
@@ -27,9 +26,6 @@ public class SoundManagerFruit : MonoBehaviour
                 break;
             case "ping":
                 audioSrc.PlayOneShot(pingSound);
-                break;
-            case "bomb":
-                audioSrc.PlayOneShot(bombSound);
                 break;
             case "splat":
                 audioSrc.PlayOneShot(splatSound);

@@ -9,7 +9,7 @@ public class Knifethrowing : MonoBehaviour
     public float player;
     int bulletLayer;
 
-    public float fireDelay = 0.25f;
+    public float fireDelay = 5f;
     float cooldownTimer = 0;
 
     void Start()
@@ -24,7 +24,7 @@ public class Knifethrowing : MonoBehaviour
         {
             cooldownTimer -= Time.deltaTime;
 
-            if (Input.GetButton("P1M") && cooldownTimer <= 0)
+            if (Input.GetButton("P1M") && cooldownTimer <= 0)// we want it to fire when middle button is pressed but not spam fire
             {
                 // SHOOT!
                 cooldownTimer = fireDelay;

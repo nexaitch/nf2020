@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Moveup : MonoBehaviour
+public class KnifeBehaviour : MonoBehaviour
 {
-
-    public float maxSpeed = 5f;
+    // this code is just to get a gameobject to move up
+    public float maxSpeed = 6f;
+    public int ObjLife;
 
     // Update is called once per frame
     void FixedUpdate()

@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 7315549545137146967}
   - component: {fileID: 7315549545137146965}
   - component: {fileID: 7315549545137146970}
-  - component: {fileID: 8739086853763909376}
   - component: {fileID: -1828316264224969406}
-  m_Layer: 9
+  - component: {fileID: -2352106354296809224}
+  m_Layer: 0
   m_Name: knife
-  m_TagString: Untagged
+  m_TagString: Knife
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1263116315
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 268b303573d802347822e44e5f5dab00, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -132,20 +132,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8739086853763909376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7315549545137146966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb938144d09c8e44cb6387d70ab7bbe3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1
-  invulnPeriod: 0
 --- !u!114 &-1828316264224969406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,3 +145,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 5
+  ObjLife: 0
+--- !u!114 &-2352106354296809224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7315549545137146966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9f5fe1bcb70fd45bb5d27cc72d9766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  durianOffset: {x: 0, y: 1, z: 0}
+  odurian: {fileID: 1368567540044969100, guid: 52527f72c27d09c4f83dc1e7be27954c, type: 3}
